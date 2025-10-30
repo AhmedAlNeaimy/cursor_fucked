@@ -6,8 +6,8 @@ A tool For Fucking "I mean" Resetting Cursor IDE Device Identifiers on macOS & W
 
 ## Platform Support
 
-- 🍎 **macOS**: Use `reset.sh` (bash script) - Instructions below
-- 🪟 **Windows**: Use `reset.ps1` (PowerShell) - [See Windows Guide](README_WINDOWS.md)
+- <img src="apple-logo.svg" width="16" height="16" alt="Apple"> **macOS**: Use `reset.sh` (bash script) - [Jump to macOS Guide](#macos-guide)
+- <img src="windows-logo.svg" width="16" height="16" alt="Windows"> **Windows**: Use `reset.ps1` (PowerShell) - [Jump to Windows Guide](#windows-guide)
 
 ## What It Does
 
@@ -17,15 +17,17 @@ A tool For Fucking "I mean" Resetting Cursor IDE Device Identifiers on macOS & W
 - ✅ Handles code signing
 - ✅ Works with Cursor & Qoder IDEs
 
-## Requirements (macOS)
+---
+
+## <img src="apple-logo.svg" width="20" height="20" alt="Apple"> macOS Guide
+
+### Requirements
 
 - macOS 10.13+
 - Cursor IDE or Qoder IDE
 - Terminal access
 
-**For Windows users**: [Click here for Windows instructions](README_WINDOWS.md)
-
-## Installation
+### Installation
 
 ### Step 1: Download the Script
 
@@ -46,9 +48,9 @@ sudo cp ~/cursor_fucked.sh /usr/local/bin/cursor_fucked
 cursor_fucked --app Cursor
 ```
 
-## Usage
+### Usage
 
-### For Cursor IDE
+#### For Cursor IDE
 
 **Reset Device IDs:**
 
@@ -68,7 +70,7 @@ cursor_fucked --app Cursor --restore
 
 ---
 
-### For Qoder IDE
+#### For Qoder IDE
 
 **Reset Device IDs:**
 
@@ -86,7 +88,7 @@ cursor_fucked --app Qoder
 cursor_fucked --app Qoder --restore
 ```
 
-## Alternative: One-Liner (No Installation)
+### Alternative: One-Liner (No Installation)
 
 If you don't want to install the command, use these one-liners:
 
@@ -105,7 +107,7 @@ curl -fsSL https://raw.githubusercontent.com/AhmedAlNeaimy/cursor_fucked/refs/he
 curl -fsSL https://raw.githubusercontent.com/AhmedAlNeaimy/cursor_fucked/refs/heads/main/reset.sh | bash -s -- --restore
 ```
 
-## Troubleshooting
+### Troubleshooting
 
 **Force Quit Cursor/Qoder:**
 
@@ -117,6 +119,129 @@ or
 ```bash
 pkill -9 Qoder
 ```
+
+---
+
+## <img src="windows-logo.svg" width="20" height="20" alt="Windows"> Windows Guide
+
+### Requirements
+
+- Windows 10/11
+- PowerShell 5.0 or higher
+- Cursor IDE or Qoder IDE
+- Administrator privileges (recommended)
+
+### Installation
+
+#### Step 1: Download the Script
+
+Open PowerShell and run:
+
+```powershell
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/AhmedAlNeaimy/cursor_fucked/refs/heads/main/reset.ps1" -OutFile "$env:USERPROFILE\cursor_fucked.ps1"
+```
+
+#### Step 2: Allow Script Execution
+
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+#### Step 3: Verify Installation
+
+```powershell
+& "$env:USERPROFILE\cursor_fucked.ps1" -App Cursor
+```
+
+### Usage
+
+#### For Cursor IDE
+
+**Reset Device IDs:**
+
+1. Sign out from Cursor
+2. Close Cursor completely
+3. Open PowerShell as Administrator (recommended)
+4. Run:
+```powershell
+& "$env:USERPROFILE\cursor_fucked.ps1" -App Cursor
+```
+5. Start Cursor and sign in with a new account
+
+**Restore Original Setup:**
+
+```powershell
+& "$env:USERPROFILE\cursor_fucked.ps1" -App Cursor -Restore
+```
+
+---
+
+#### For Qoder IDE
+
+**Reset Device IDs:**
+
+1. Sign out from Qoder
+2. Close Qoder completely
+3. Open PowerShell as Administrator (recommended)
+4. Run:
+```powershell
+& "$env:USERPROFILE\cursor_fucked.ps1" -App Qoder
+```
+5. Start Qoder and sign in with a new account
+
+**Restore Original Setup:**
+
+```powershell
+& "$env:USERPROFILE\cursor_fucked.ps1" -App Qoder -Restore
+```
+
+### Alternative: One-Liner (No Installation)
+
+If you don't want to save the script, use these one-liners:
+
+**Reset Cursor:**
+```powershell
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/AhmedAlNeaimy/cursor_fucked/refs/heads/main/reset.ps1" -UseBasicParsing | Invoke-Expression
+```
+
+**Reset Qoder:**
+```powershell
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/AhmedAlNeaimy/cursor_fucked/refs/heads/main/reset.ps1" -UseBasicParsing | ForEach-Object { Invoke-Expression "$_ -App Qoder" }
+```
+
+### Troubleshooting
+
+**Force Quit Cursor/Qoder:**
+
+If the IDE won't close:
+```powershell
+Stop-Process -Name "Cursor" -Force
+```
+or
+```powershell
+Stop-Process -Name "Qoder" -Force
+```
+
+**PowerShell Execution Policy Error:**
+
+If you get an execution policy error:
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
+```
+
+**Administrator Privileges:**
+
+For best results, run PowerShell as Administrator:
+- Right-click on PowerShell
+- Select "Run as Administrator"
+
+### File Locations
+
+- **Storage File**: `%APPDATA%\Cursor\User\globalStorage\storage.json`
+- **App Location**: `%LOCALAPPDATA%\Programs\Cursor`
+- **Backups**: Same directory with `.backup` or `.bak` extension
+
+---
 
 ## License
 
