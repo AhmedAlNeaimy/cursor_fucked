@@ -1,8 +1,13 @@
-# Reset Cursor on Mac
+# Reset Cursor IDE
 
-A tool For Fucking "I mean" Resetting Cursor IDE Device Identifiers on macOS, So you can use UNLIMITED accounts as much as you want.
+A tool For Fucking "I mean" Resetting Cursor IDE Device Identifiers on macOS & Windows, So you can use UNLIMITED accounts as much as you want.
 
 ![Demo](demo.png)
+
+## Platform Support
+
+- 🍎 **macOS**: Use `reset.sh` (bash script) - Instructions below
+- 🪟 **Windows**: Use `reset.ps1` (PowerShell) - [See Windows Guide](README_WINDOWS.md)
 
 ## What It Does
 
@@ -12,11 +17,13 @@ A tool For Fucking "I mean" Resetting Cursor IDE Device Identifiers on macOS, So
 - ✅ Handles code signing
 - ✅ Works with Cursor & Qoder IDEs
 
-## Requirements
+## Requirements (macOS)
 
 - macOS 10.13+
 - Cursor IDE or Qoder IDE
 - Terminal access
+
+**For Windows users**: [Click here for Windows instructions](README_WINDOWS.md)
 
 ## Installation
 
