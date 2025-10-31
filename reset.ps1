@@ -157,7 +157,7 @@ if (Test-Path $StoragePath) {
 
         $storageContent | ConvertTo-Json -Depth 10 | Set-Content $StoragePath -Encoding UTF8
 
-        Write-Host "Successfully updated all IDs for $App:"
+        Write-Host "Successfully updated all IDs for ${App}:"
         Write-Host "New telemetry.machineId: $newId"
         Write-Host "New telemetry.macMachineId: $newMacId"
         Write-Host "New telemetry.devDeviceId: $newDeviceId"
